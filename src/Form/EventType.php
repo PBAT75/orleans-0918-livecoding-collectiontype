@@ -22,6 +22,11 @@ class EventType extends AbstractType
 //                    'choice_label'  => 'firstname',
 //                    'class' => User::class,
 //                    'label' => false),
+                'allow_delete' => true,
+                'prototype' => true,
+                'attr' => array(
+                    'class' => 'my-selector',
+                ),
                 'allow_add' => true]
             )
         ;
