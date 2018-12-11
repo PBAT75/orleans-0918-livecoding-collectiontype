@@ -6,6 +6,7 @@ use App\Entity\Event;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,11 +16,14 @@ class EventType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('users', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'firstname',
-                'multiple' => false,
-                'expanded' => false])
+            ->add('users', CollectionType::class, [
+                'entry_type' => UserType::class,
+//                'entry_options'  => array(
+//                    'choice_label'  => 'firstname',
+//                    'class' => User::class,
+//                    'label' => false),
+                'allow_add' => true]
+            )
         ;
     }
 

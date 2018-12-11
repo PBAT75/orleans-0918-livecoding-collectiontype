@@ -10,10 +10,16 @@
             <tr>
                 <th>Id</th>
                 <td>{{ event.id }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Name</th>
                 <td>{{ event.name }}</td>
+                <td>
+                    {% for user in event.users %}
+                        <p>{{ user.firstname }}</p>
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>

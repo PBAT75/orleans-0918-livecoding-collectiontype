@@ -24,7 +24,7 @@ class Event
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="events")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="events", cascade={"persist"})
      */
     private $users;
 
